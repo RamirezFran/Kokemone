@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/combat.css">
+    <script defer src="../js/combat.js"></script>
+    <title>Combat</title>
+</head>
+
+<body>
+    <main class="scene" id="scene">
+        <section class="info-cards">
+            <div class="card" id="enemy-card">
+                <h3 class="name" id="enemy-name"></h3>
+                <p class="lvl" id="enemy-lvl"></p>
+                <section class="hp-bar-container">
+                    <div class="hp-bar" id="enemy-hp-bar"></div>
+                </section>
+            </div>
+            <div class="card" id="player-card">
+                <h3 class="name" id="player-name"></h3>
+                <p class="lvl" id="player-lvl"></p>
+                <section class="hp-bar-container">
+                    <div class="hp-bar" id="player-hp-bar"></div>
+                </section>
+                <p class="n-health" id="n-health"></p>
+            </div>
+        </section>
+        <section class="sprites">
+            <img src="" alt="enemy-sprite" class="enemy-sprite" id="enemy-sprite">
+            <img src="" alt="player-sprite" class="player-sprite" id="player-sprite">
+        </section>
+
+        <article class="action-bar" id="action-bar">
+            <section class="text-box-container" id="abilityshow">
+                <p id="text-show"></p>
+            </section>
+            <section class="comand-buttons">
+                <button class="button" id="fight">Fight</button>
+                <button class="button" id="bag">Bag</button>
+                <button class="button" id="pokemon">Pokemon</button>
+                <button class="button" id="run">Run</button>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    background-color: darkslategray;
+}
+main {
+    background: url("../galeria/Fondo/grass_path_left_to_bottom_right.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 99%;
+    margin: 10px
+}
+.tall-grass {
+    display: grid;
+    width: 60%;
+    margin-left: 50px;
+    
+    grid-template-columns: repeat(7, 60px);
+}
+.grass {
+    background-image: url(../galeria/Fondo/tall_grass.jfif);
+    background-size: cover;
+    padding: 20px;
+    background-position: center;
+}
+.grass:hover {
+    cursor: pointer;
+    width: 99%;
+}
