@@ -200,8 +200,8 @@ const pokes = {
   },
 };
 
-const player = {};
-const enemy = {};
+let player = {};
+let enemy = {};
 
 const pokeNames = ["pidgey", "pikachu", "rayquaza", "blaziken", "kabutops", "wopper"];
 const party = [];
@@ -343,25 +343,28 @@ function selectPlayer(selected, change) {
   if (!player.name) {
     let random = Math.floor(Math.random() * 4);
     let selplayer = pokeNames[random];
-    console.log(party[0]);
-    player.name = pokes[selplayer].name;
-    player.lvl = pokes[selplayer].lvl;
-    player.maxhp = pokes[selplayer].maxhp;
-    player.hp = pokes[selplayer].hp;
-    player.atacks = pokes[selplayer].atacks;
-    player.stats = pokes[selplayer].stats;
-    player.type = pokes[selplayer].type;
-    player.sprite = pokes[selplayer].playerSprite;
+    const aux = {}
+    aux.name = pokes[selplayer].name;
+    aux.lvl = pokes[selplayer].lvl;
+    aux.maxhp = pokes[selplayer].maxhp;
+    aux.hp = pokes[selplayer].hp;
+    aux.atacks = pokes[selplayer].atacks;
+    aux.stats = pokes[selplayer].stats;
+    aux.type = pokes[selplayer].type;
+    aux.sprite = pokes[selplayer].playerSprite;
+    player = JSON.parse(JSON.stringify(aux))
   } else {
     let partySel = findMember(selected);
-    player.name = party[partySel].name;
-    player.lvl = party[partySel].lvl;
-    player.maxhp = party[partySel].maxhp;
-    player.hp = party[partySel].hp;
-    player.atacks = party[partySel].atacks;
-    player.stats = pokes[selected].stats;
-    player.type = party[partySel].type;
-    player.sprite = pokes[selected].playerSprite;
+    const aux = {}
+    aux.name = party[partySel].name;
+    aux.lvl = party[partySel].lvl;
+    aux.maxhp = party[partySel].maxhp;
+    aux.hp = party[partySel].hp;
+    aux.atacks = party[partySel].atacks;
+    aux.stats = pokes[selected].stats;
+    aux.type = party[partySel].type;
+    aux.sprite = pokes[selected].playerSprite;
+    player = JSON.parse(JSON.stringify(aux))
     playerHpBar.style.width = (player.hp * 100) / player.maxhp + "%";
     nHealth.textContent = `${player.hp}/${player.maxhp}`;
     playerSprite.src = player.sprite;
@@ -391,14 +394,16 @@ function findMember(x) {
 function selectEnemy() {
   let random = Math.floor(Math.random() * pokeNames.length);
   let selEnemy = pokeNames[random];
-  enemy.name = pokes[selEnemy].name;
-  enemy.lvl = pokes[selEnemy].lvl;
-  enemy.maxhp = pokes[selEnemy].maxhp;
-  enemy.hp = pokes[selEnemy].hp;
-  enemy.atacks = pokes[selEnemy].atacks;
-  enemy.stats = pokes[selEnemy].stats;
-  enemy.type = pokes[selEnemy].type;
-  enemy.sprite = pokes[selEnemy].enemySprite;
+  const aux = {};
+  aux.name = pokes[selEnemy].name;
+  aux.lvl = pokes[selEnemy].lvl;
+  aux.maxhp = pokes[selEnemy].maxhp;
+  aux.hp = pokes[selEnemy].hp;
+  aux.atacks = pokes[selEnemy].atacks;
+  aux.stats = pokes[selEnemy].stats;
+  aux.type = pokes[selEnemy].type;
+  aux.sprite = pokes[selEnemy].enemySprite;
+  enemy = JSON.parse(JSON.stringify(aux))
 }
 
 pokeButton.addEventListener("click", () => pokeSelectBar(true));
