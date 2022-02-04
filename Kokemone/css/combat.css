@@ -8,11 +8,12 @@ html, body {
 }
 body {
     background-color: black;
-    
+    font-size: 1.5rem;
 }
 .scene {
     margin: 30px auto;
-    max-width: 700px;
+    width: 875px;
+    height: 602px;
     position: relative;
     height: 80%;
 }
@@ -25,37 +26,40 @@ body {
 .card {
     background-color: wheat;  
     padding: .5rem; 
-    width: 200px;
+    width: 250px;
 }
 #enemy-card {
     position: absolute;
-    height: 60px;
-    top: 40px;
+    height: 80px;
+    top: 65px;
 }
 #player-card {
     position: absolute;
-    bottom: 120px;
+    bottom: 160px;
     right: 0;
-    height: 70px;
+    height: 90px;
     
 }
 .name {
     display: inline;
+    margin-left: 10px;
+    font-size: 1.5rem;
 }
 .lvl {
     display: inline;
     margin-left: 35px;
     font-size: .8rem;
     position: absolute;
+    top: 10px;
     right: 10px;
 }
 .hp-bar-container {
     position: absolute;
     right: 10px;
-    margin-top: 10px;
-    width: 135px;
+    margin-top: 15px;
+    width: 80%;
     background-color: black;
-    height: 7px;
+    height: 9px;
 }
 .hp-bar {
     background-color: green;
@@ -67,7 +71,7 @@ body {
     font-size: smaller;
     position: absolute;
     right: 20px;
-    bottom: 2px;
+    bottom: 5px;
 }
 .action-bar {
     display: grid;
@@ -87,18 +91,18 @@ body {
 .text-box-container {
     background-color: wheat;
     padding: .2rem;
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     gap: .1rem;
 }
 .player-sprite {
     position: absolute;
     bottom: 18%;
-    left: 100px;
+    left: 180px;
 }
 .enemy-sprite {
     position: absolute;
-    top: 70px;
+    top: 120px;
     right: 35px;
 }
 #pokeWindow {
@@ -121,7 +125,7 @@ body {
 }
 #cover {
     position: absolute;
-    height: 150%;
+    height: 102%;
     width: 100%;
     background-color: black;
     z-index: 99;

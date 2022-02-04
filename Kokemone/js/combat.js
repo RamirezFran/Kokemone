@@ -330,7 +330,7 @@ function pokeSelectBar(change) {
   let window = document.createElement("div");
   window.id = "pokeWindow";
   mainScene.appendChild(window);
-  textShow.display = "flex";
+  textShow.style.display = "flex";
   textShow.textContent = `Which Pokemon will you send out?`
   for (let i = 0; i < party.length; i++) {
     let poke = party[i];
@@ -338,6 +338,9 @@ function pokeSelectBar(change) {
     card.innerText = poke.name.toUpperCase();
     card.id = "poke-select";
     window.appendChild(card);
+    if (poke.hp <= 0) {
+      card.disabled = true
+    }
     card.addEventListener("click", () => {
       pokeWindow.remove();
       let aux = card.innerText.toLowerCase();
