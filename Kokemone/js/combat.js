@@ -9,7 +9,7 @@ const abilities = {
     crit: 0,
   },
   sandAtack: {
-    power: 0,
+    power: 300,
     accuracy: 100,
     type: "ground",
     description: "Reduces accuracy by throwing sand.",
