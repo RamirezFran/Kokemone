@@ -244,7 +244,7 @@ const sfx = document.getElementById("sound-effects")
 function startAnimation() {
   audio.play();
   audio.volume = 0.02;
-  audio.loop = true;
+  audio.loop = false;
   cover.style.backgroundColor = "transparent"
   setTimeout(() => cover.remove(), 3000)
 }
@@ -677,9 +677,16 @@ function infoMsg(action, b, crit) {
 
 //Player turn's general calculations
 function damn(chance, check, damage, action) {
-  if (enemy.hp <= 0 || !remainingPokes()) {
+  if (enemy.hp <= 0) {
+    audio.src = "../Audio/win-music.mp3";
+    audio.play();
     return;
-  } else if (player.hp <= 0) {
+  } else if (player.hp <= 0 && !remainingPokes()) {
+    audio.src = "../Audio/win-music.mp3";
+    audio.play();
+    return;
+  }
+  if (player.hp <= 0) {
     return;
   }
   let crit = critChance(abilities[player.atacks[action]]);
@@ -757,7 +764,16 @@ function remainingPokes() {
 
 //Enemy turn's general calculations
 function enemyTurn() {
-  if (enemy.hp <= 0 || !remainingPokes()) {
+  if (enemy.hp <= 0) {
+    audio.src = "../Audio/win-music.mp3";
+    audio.play();
+    return;
+  }else if (player.hp <= 0 && !remainingPokes()) {
+    audio.src = "../Audio/win-music.mp3";
+    audio.play();
+    return;
+  };
+  if (player.hp <= 0) {
     return;
   }
   let action = Math.floor(Math.random() * 4);
@@ -781,7 +797,6 @@ function enemyTurn() {
       let toChange = abilities[enemy.atacks[action]].status[2];
       console.log(`Player ${toChange} is ${player.stats[toChange]} before`);
       console.log(`Enemy ${toChange} is ${enemy.stats[toChange]} before`);
-
       let chance = abilities[enemy.atacks[action]].status[1];
       let check = Math.floor(Math.random() * 100);
       if (chance >= check) {
@@ -789,8 +804,6 @@ function enemyTurn() {
       }
       console.log(`Player ${toChange} is ${player.stats[toChange]} after`);
       console.log(`Enemy ${toChange} is ${enemy.stats[toChange]} after`);
-
-
     }
     if (crit) {
       damage = damage * 2;

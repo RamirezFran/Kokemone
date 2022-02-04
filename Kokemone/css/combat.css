@@ -68,7 +68,7 @@ body {
     transition-duration: 1000ms;
 }
 .n-health {
-    font-size: smaller;
+    font-size: 1.16rem;
     position: absolute;
     right: 20px;
     bottom: 5px;
