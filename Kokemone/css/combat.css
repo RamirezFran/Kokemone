@@ -118,5 +118,12 @@ body {
 }
 #text-show {
     padding: 5px 0 0 5px;
-
+}
+#cover {
+    position: absolute;
+    height: 150%;
+    width: 100%;
+    background-color: black;
+    z-index: 99;
+    transition-duration: 4000ms;
 }

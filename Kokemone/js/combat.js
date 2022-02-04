@@ -48,6 +48,7 @@ const abilities = {
     description: "Strong atack that may miss",
     status: [true, 40, "speed", 10],
     crit: 0,
+    audio: "../Audio/pickachue-mp3cut.mp3",
   },
   gust: {
     power: 20,
@@ -234,6 +235,21 @@ const textShow = document.getElementById("text-show");
 const enemyText = document.getElementById("enemy-text");
 const pokeButton = document.getElementById("pokemon");
 const mainScene = document.getElementById("scene");
+const audio = document.getElementById("audio");
+const scene = document.getElementById("scene");
+const cover = document.getElementById("cover");
+const sfx = document.getElementById("sound-effects")
+
+//Plays starting animation and music
+function startAnimation() {
+  audio.play();
+  audio.volume = 0.02;
+  audio.loop = true;
+  cover.style.backgroundColor = "transparent"
+  setTimeout(() => cover.remove(), 3000)
+}
+
+scene.addEventListener("click",() => startAnimation());
 
 //Capitalizes a given word
 function capitalize(word) {
@@ -678,6 +694,11 @@ function damn(chance, check, damage, action) {
   }
 
   if (chance > check) {
+    if (abilities[player.atacks[action]].audio && player.name === "pikachu") {
+      sfx.src = abilities[player.atacks[action]].audio;
+      sfx.volume = 0.08
+      sfx.play()
+    }
     if (crit) {
       damage = damage * 2;
     }
